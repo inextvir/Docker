@@ -12,7 +12,7 @@ RUN apt-get -qq update && apt-get -qq -y install curl bzip2 \
     && rm -rf /var/lib/apt/lists/* /var/log/dpkg.log \
     && conda clean --all --yes \
     && conda create -n lmat
-    ²² conda activate lmat
+    && conda activate lmat
     && conda install -y python=2 \
     && conda install -c fmaguire lmat
 
