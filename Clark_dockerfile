@@ -11,6 +11,7 @@ RUN apt-get -qq update && apt-get -qq -y install curl bzip2 \
     && apt-get autoclean \
     && rm -rf /var/lib/apt/lists/* /var/log/dpkg.log \
     && conda clean --all --yes \
+    && conda install -y python=3 \
     && conda install -c bioconda/label/cf201901 clark
 
 ENV PATH /opt/conda/bin:$PATH
