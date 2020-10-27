@@ -1,0 +1,4 @@
+singularity build GATK-PathSeq.sif docker://broadinstitute/gatk
+singularity shell GATK-PathSeq.sif
+cd gatk
+./gatk --help
