@@ -1,0 +1,1 @@
+singularity build SURPI.sif docker://kdhiri/surpi:latest
