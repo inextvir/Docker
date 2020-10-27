@@ -1,0 +1,1 @@
+singularity build krakenuniq_2020-09-23 docker://shengwei/krakenuniq

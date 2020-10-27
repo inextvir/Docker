@@ -1,0 +1,7 @@
+nozoo/centrifuge
+singularity build centrifuge_2020-09-23 docker://nanozoo/centrifuge
+module load sinteractive/20180723
+sinteractive
+singularity shell kraken2_v1.0_2020-07-31
+##https://ccb.jhu.edu/software/centrifuge/manual.shtml#database-download-and-index-building
+

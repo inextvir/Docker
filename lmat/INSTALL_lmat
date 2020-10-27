@@ -1,0 +1,1 @@
+singularity build lmat_2020_10_23 docker://johrollin/lmat:latest

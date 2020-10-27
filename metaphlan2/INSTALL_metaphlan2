@@ -1,0 +1,2 @@
+singularity build metaphlan2_2020-09-23 docker://biobakery/metaphlan2:2.7.7_cloud_r1
+

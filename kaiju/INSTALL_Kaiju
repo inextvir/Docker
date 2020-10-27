@@ -1,0 +1,7 @@
+singularity build Kaiju_2020-08-02 docker://quay.io/biocontainers/kaiju:1.7.3--h8b12597_1
+singularity shell Kaiju_2020-08-02
+## WARNING: Skipping mount /var/singularity/mnt/session/etc/resolv.conf [files]: /etc/resolv.conf doesn't exist in container
+
+kaiju -t /mnt/cbib/inextvir/DB/kaiju_db_fast/nodes.dmp -f /mnt/cbib/inextvir/DB/kaiju_db_fast/rvdb/kaiju_db_rvdb.fmi -i /mnt/cbib/inextvir/Data/Performance_testing/datasets/1A/dataset_1A_R1.fastq -j /mnt/cbib/inextvir/Data/Performance_testing/datasets/1A/dataset_1A_R2.fastq -v
+##Error: Could not open file /mnt/cbib/inextvir/DB/kaiju_db_fast/nodes.dmp
+#Need to add --bind or open file /mnt/cbib/inextvir/ 

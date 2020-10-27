@@ -1,0 +1,1 @@
+singularity build dudes_2020_10_27 docker://johrollin/dudes:latest

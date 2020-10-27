@@ -1,0 +1,2 @@
+singularity build mash_2020-09-30 docker://evolbioinfo/mash:v2.2
+

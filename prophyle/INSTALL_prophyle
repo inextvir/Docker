@@ -1,0 +1,2 @@
+singularity build prophyle_2020-09-23 docker://nanozoo/prophyle
+
