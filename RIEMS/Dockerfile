@@ -25,7 +25,7 @@ RUN conda config --add channels conda-forge && \
     conda config --add channels default &&\
 
 RUN mkdir /work && \
-    git clone https://github.com/EBI-COMMUNITY/fli-RIEMS /work && \
+    git clone https://github.com/EBI-COMMUNITY/fli-RIEMS /work/RIEMS && \
     wget -P /work ftp://emboss.open-bio.org/pub/EMBOSS/old/6.3.1/EMBOSS-6.3.1.tar.gz && \
     tar -xzvf /work/EMBOSS-6.3.1.tar.gz -O -P /work && \
     cd /work/EMBOSS-6.3.1 && ./configure --without-x && make && make install && \
