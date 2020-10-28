@@ -6,9 +6,8 @@ MAINTAINER Inextvir team
 ENV LANG=C.UTF-8 LC_ALL=C.UTF-8
 ENV PATH /work/:/opt/conda/bin:$PATH
 
-RUN apt-get update --fix-missing && \
-    apt-get install -y software-properties-common && \
-    add-apt-repository universe && \
+RUN echo "deb http://ftp.us.debian.org/debian unstable main contrib non-free" > /etc/apt/sources.list.d/unstable.list && \
+    apt-get update --fix-missing && \
     apt-get install -y gcc-4.8 g++-4.8 gcc-4.8-multilib make build-essential && \
     apt-get install -y wget bzip2 ca-certificates curl git && \
     apt-get clean && \
