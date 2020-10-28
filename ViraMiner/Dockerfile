@@ -21,7 +21,7 @@ RUN wget --quiet https://repo.anaconda.com/miniconda/Miniconda3-4.5.11-Linux-x86
     
 RUN conda config --add channels conda-forge && \
     conda config --add channels bioconda && \
-    conda config --add channels default &&\i
+    conda config --add channels default 
 
 RUN conda install python=2.7 numpy argparse itertools keras scikit-learn pandas && conda clean -a
 
