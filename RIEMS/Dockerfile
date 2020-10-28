@@ -4,10 +4,11 @@ FROM debian:latest
 MAINTAINER Inextvir team
 
 ENV LANG=C.UTF-8 LC_ALL=C.UTF-8
-ENV PATH /opt/conda/bin:$PATH
+ENV PATH /work/:/opt/conda/bin:$PATH
 
-RUN add-apt-repository universe && \
-    apt-get update --fix-missing && \
+RUN apt-get update --fix-missing && \
+    apt-get install -y software-properties-common && \
+    add-apt-repository universe && \
     apt-get install -y gcc-4.8 g++-4.8 gcc-4.8-multilib make build-essential && \
     apt-get install -y wget bzip2 ca-certificates curl git && \
     apt-get clean && \
@@ -32,8 +33,6 @@ RUN mkdir /work && \
     cd /work/EMBOSS-6.3.1 && ./configure --without-x && make && make install && \
     wget https://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/2.4.0/ncbi-blast-2.4.0+-src.tar.gz -P /work && \
     tar -xzvf ncbi-blast-2.4.0+-src.tar.gz -C /work/ 
-
-ENV PATH /work:/opt/conda/bin:$PATH
 
 ENV TINI_VERSION v0.16.1
 ADD https://github.com/krallin/tini/releases/download/${TINI_VERSION}/tini /usr/bin/tini
