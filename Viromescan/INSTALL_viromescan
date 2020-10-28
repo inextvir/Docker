@@ -1,0 +1,23 @@
+singularity build --remote viromescan.sif Singularity
+singularity build --sandbox dev/ viromescan.sif
+singularity shell --writable dev/
+
+source activate viromescan
+cd /viromescan/database/hg19/
+bmtool -d hg19reference.fa -o hg19reference.bitmask -A 0 -w 18
+srprism mkindex -i hg19reference.fa -o hg19reference.srprism -M 7168
+makeblastdb -in hg19reference.fa -dbtype nucl
+
+cd ../../..
+mv viromescan /opt/conda/envs/viromescan
+ln -s /opt/conda/envs/viromescan/viromescan/viromescan.sh  /opt/conda/envs/viromescan/bin/viromescan
+exit
+
+rm viromescan.sif
+singularity build viromescan.sif dev/
+
+##test
+singularity run viromescan.sif
+viromescan
+##example run
+viromescan -p 3 -m /opt/conda/envs/viromescan -d virus_ALL -1 sample_A_r1.fastq -2 sample_A_r2.fastq -o /viromescan_sample_A
