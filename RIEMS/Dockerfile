@@ -6,7 +6,8 @@ MAINTAINER Inextvir team
 ENV LANG=C.UTF-8 LC_ALL=C.UTF-8
 ENV PATH /opt/conda/bin:$PATH
 
-RUN apt-get update --fix-missing && \
+RUN add-apt-repository universe && \
+    apt-get update --fix-missing && \
     apt-get install -y gcc-4.8 g++-4.8 gcc-4.8-multilib make build-essential && \
     apt-get install -y wget bzip2 ca-certificates curl git && \
     apt-get clean && \
@@ -22,7 +23,7 @@ RUN wget --quiet https://repo.anaconda.com/miniconda/Miniconda3-4.5.11-Linux-x86
     
 RUN conda config --add channels conda-forge && \
     conda config --add channels bioconda && \
-    conda config --add channels default &&\
+    conda config --add channels default 
 
 RUN mkdir /work && \
     git clone https://github.com/EBI-COMMUNITY/fli-RIEMS /work/RIEMS && \
