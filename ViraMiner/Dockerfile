@@ -23,7 +23,7 @@ RUN conda config --add channels conda-forge && \
     conda config --add channels bioconda && \
     conda config --add channels default 
 
-RUN conda install python=2.7 numpy argparse keras scikit-learn pandas && conda clean -a
+RUN conda create -n py27 python=2.7 numpy argparse keras scikit-learn pandas && conda clean -a
 
 RUN mkdir /work && \
     git clone https://github.com/NeuroCSUT/ViraMiner /work/viraminer
