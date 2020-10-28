@@ -2,3 +2,6 @@ docker build .
 docker tag 9f75b32cf896 kdhiri/surpi:latest
 docker push kdhiri/surpi:latest
 singularity build SURPI.sif docker://kdhiri/surpi:latest
+singularity run SURPI.sif
+##test
+SURPI.sh
