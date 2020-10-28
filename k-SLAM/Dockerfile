@@ -22,7 +22,7 @@ RUN wget --quiet https://repo.anaconda.com/miniconda/Miniconda3-4.5.11-Linux-x86
     
 RUN conda config --add channels conda-forge && \
     conda config --add channels bioconda && \
-    conda config --add channels default &&\
+    conda config --add channels default 
 
 RUN mkdir /work && \
     git clone https://github.com/aindj/k-SLAM /work/k-slam
