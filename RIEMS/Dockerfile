@@ -27,11 +27,12 @@ RUN conda config --add channels conda-forge && \
 RUN mkdir /work && \
     git clone https://github.com/EBI-COMMUNITY/fli-RIEMS /work && \
     wget -P /work ftp://emboss.open-bio.org/pub/EMBOSS/old/6.3.1/EMBOSS-6.3.1.tar.gz && \
-    tar -xzvf /work/EMBOSS-6.3.1.tar.gz -O -P /work
-    cd /work/EMBOSS-6.3.1 && \
-    ./configure --without-x && make && make install && \
+    tar -xzvf /work/EMBOSS-6.3.1.tar.gz -O -P /work && \
+    cd /work/EMBOSS-6.3.1 && ./configure --without-x && make && make install && \
+    wget https://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/2.4.0/ncbi-blast-2.4.0+-src.tar.gz -P /work && \
+    tar -xzvf ncbi-blast-2.4.0+-src.tar.gz -C /work/ 
 
-ENV PATH /seq:/opt/conda/bin:$PATH
+ENV PATH /work:/opt/conda/bin:$PATH
 
 ENV TINI_VERSION v0.16.1
 ADD https://github.com/krallin/tini/releases/download/${TINI_VERSION}/tini /usr/bin/tini
