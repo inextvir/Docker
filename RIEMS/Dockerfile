@@ -6,7 +6,7 @@ MAINTAINER Inextvir team
 ENV LANG=C.UTF-8 LC_ALL=C.UTF-8
 ENV PATH /work/:/opt/conda/bin:$PATH
 
-RUN echo "deb [URL] bionic main universe" > /etc/apt/sources.list
+RUN echo "deb [URL] bionic main universe" > /etc/apt/sources.list && \
     #echo "deb http://ftp.us.debian.org/debian unstable main contrib non-free" > /etc/apt/sources.list.d/unstable.list && \
     apt-get update --fix-missing && \
     apt-get install -y -t unstable gcc-5 g++-5 gcc-5-multilib make build-essential && \
