@@ -6,9 +6,9 @@ MAINTAINER Inextvir team
 ENV LANG=C.UTF-8 LC_ALL=C.UTF-8
 ENV PATH /work/:/opt/conda/bin:$PATH
 
-RUN echo "deb http://deb.debian.org/debian buster/devel main contrib" > /etc/apt/sources.list && \
+RUN echo "deb http://deb.debian.org/debian jessie" > /etc/apt/sources.list && \
     apt-get update --fix-missing && \
-    apt-get install -y -t unstable gcc g++ gcc-multilib make build-essential && \
+    apt-get install -y gcc g++ gcc-multilib make build-essential && \
     apt-get install -y wget bzip2 ca-certificates curl git && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
