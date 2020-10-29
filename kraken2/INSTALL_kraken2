@@ -1,6 +1,2 @@
-singularity build kraken2_v1.0_2020-07-31 docker://tbattaglia/kraken2
-module load sinteractive/20180723
-sinteractive
-singularity shell kraken2_v1.0_2020-07-31 
-kraken2 --db /mnt/cbib/inextvir/DB/kraken_db_fast/vir_fun_bact --quick --report reportVFB1.out /home/jrollin/data/sRNA_banana/all-Mix1-3_S17_L004_R1_001.fastq 2>/dev/null
-kraken2: database ("/mnt/cbib/inextvir/DB/kraken_db_fast/vir_fun_bact") does not contain necessary file taxo.k2d
+singularity build kraken2_2020_10_29 docker://johrollin/kraken2:latest
+
