@@ -3,7 +3,7 @@ FROM debian:latest
 MAINTAINER Inextvir team
 
 ENV LANG=C.UTF-8 LC_ALL=C.UTF-8
-ENV PATH /opt/conda/bin:$PATH
+ENV PATH /work:/opt/conda/bin:$PATH
 
 RUN apt-get update --fix-missing && \
     apt-get install -y gcc make build-essential && \
@@ -25,14 +25,13 @@ RUN apt-get -qq update && apt-get -qq -y install curl bzip2 \
     
 RUN conda config --add channels conda-forge && \
     conda config --add channels bioconda && \
-    conda config --add channels default 
+    conda config --add channels default && \
+    conda config --add channels menpo
 
-RUN conda create -n py27 python=2.7 numpy argparse keras scikit-learn pandas && conda clean -a
+RUN conda create -n py27 python=2.7 numpy argparse keras scikit-learn pandas enum && conda clean -a
 
 RUN mkdir /work && \
     git clone https://github.com/NeuroCSUT/ViraMiner /work/viraminer
-
-ENV PATH /work:/opt/conda/bin:$PATH
 
 ENV TINI_VERSION v0.16.1
 ADD https://github.com/krallin/tini/releases/download/${TINI_VERSION}/tini /usr/bin/tini
