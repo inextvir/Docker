@@ -1,6 +1,6 @@
 # template taken from https://hub.docker.com/r/continuumio/miniconda3/dockerfile
 # Does not work yet
-FROM debian:latest
+FROM debian:8
 MAINTAINER Inextvir team
 
 ENV LANG=C.UTF-8 LC_ALL=C.UTF-8
@@ -8,7 +8,7 @@ ENV PATH /work/:/opt/conda/bin:$PATH
 
 RUN echo "deb http://ftp.us.debian.org/debian unstable main contrib non-free" > /etc/apt/sources.list.d/unstable.list && \
     apt-get update --fix-missing && \
-    apt-get install -y gcc-5 g++-5 gcc-5-multilib make build-essential && \
+    apt-get install -y -t unstable gcc-5 g++-5 gcc-5-multilib make build-essential && \
     apt-get install -y wget bzip2 ca-certificates curl git && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
