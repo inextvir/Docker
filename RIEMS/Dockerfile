@@ -29,7 +29,7 @@ RUN mkdir /work && \
     tar -xzvf /work/EMBOSS-6.3.1.tar.gz -C /work/ && \
     cd /work/EMBOSS-6.3.1 && ./configure --without-x && make && make install && \
     wget https://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/2.4.0/ncbi-blast-2.4.0+-src.tar.gz -P /work && \
-    tar -xzvf ncbi-blast-2.4.0+-src.tar.gz -C /work/ 
+    tar -xzvf /work/ncbi-blast-2.4.0+-src.tar.gz -C /work/ 
 
 ENV TINI_VERSION v0.16.1
 ADD https://github.com/krallin/tini/releases/download/${TINI_VERSION}/tini /usr/bin/tini
