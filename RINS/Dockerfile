@@ -1,13 +1,13 @@
 # template taken from https://hub.docker.com/r/continuumio/miniconda3/dockerfile
 # Does not work yet
-FROM debian:latest
+FROM ubuntu:14.04
 MAINTAINER Inextvir team
 
 ENV LANG=C.UTF-8 LC_ALL=C.UTF-8
 ENV PATH /opt/conda/bin:$PATH
 
 RUN apt-get update --fix-missing && \
-    apt-get install -y gcc make wget && \
+    apt-get install -y gcc g++ make wget && \
     apt-get install -y wget bzip2 ca-certificates curl git && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
