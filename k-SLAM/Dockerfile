@@ -25,9 +25,17 @@ RUN conda config --add channels conda-forge && \
     conda config --add channels default 
 
 RUN mkdir /work && \
-    git clone https://github.com/aindj/k-SLAM /work/k-slam
+    git clone https://github.com/aindj/k-SLAM /work/k-slam && \
+    wget -P /work/ https://sourceforge.net/projects/boost/files/boost/1.63.0/boost_1_63_0.tar.gz && \
+    tar -xzvf /work/boost_1_63_0.tar.gz -C /work/ && \
+    cd /work/boost_1_63_0 && \
+    ./bootstrap.sh && \
+    ./b2 install && \
+    cd /work/k-slam/build/ && \
+    make && \
+    mv build/SLAM ./
 
-ENV PATH /work:/opt/conda/bin:$PATH
+ENV PATH /work/k-slam:/opt/conda/bin:$PATH
 
 ENV TINI_VERSION v0.16.1
 ADD https://github.com/krallin/tini/releases/download/${TINI_VERSION}/tini /usr/bin/tini
