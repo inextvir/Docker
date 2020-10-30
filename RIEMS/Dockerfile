@@ -29,7 +29,21 @@ RUN mkdir /work && \
     tar -xzvf /work/EMBOSS-6.3.1.tar.gz -C /work/ && \
     cd /work/EMBOSS-6.3.1 && ./configure --without-x && make && make install && \
     wget https://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/2.4.0/ncbi-blast-2.4.0+-src.tar.gz -P /work && \
-    tar -xzvf /work/ncbi-blast-2.4.0+-src.tar.gz -C /work/ 
+    tar -xzvf /work/ncbi-blast-2.4.0+-src.tar.gz -C /work/ && \
+    cd /work/ncbi-blast-2.4.0+-src/c++/ && \
+    ./configure && \
+    make && \
+    make install 
+
+# installing R 3.3.1 and packages
+RUN conda create -n riems r-base-3.3.1
+
+# installing TeX and packages
+RUN wget -P /work/ http://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz && \
+    tar -xzvf install-tl-unx.tar.gz -C /work/ && \
+    perl /work/install-tl-*/install-tl
+    
+ENV PATH=/usr/local/texlive/2020/bin/x86_64-linux:$PATH
 
 ENV TINI_VERSION v0.16.1
 ADD https://github.com/krallin/tini/releases/download/${TINI_VERSION}/tini /usr/bin/tini
