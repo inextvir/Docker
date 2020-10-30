@@ -35,7 +35,8 @@ RUN mkdir /work && \
     make && \
     mv build/SLAM ./
 
-ENV PATH /work/k-slam:/opt/conda/bin:$PATH
+ENV PATH /work/k-slam:$PATH
+ENV LD_LIBRARY_PATH /usr/local/lib/:$LD_LIBRARY_PATH
 
 ENV TINI_VERSION v0.16.1
 ADD https://github.com/krallin/tini/releases/download/${TINI_VERSION}/tini /usr/bin/tini
