@@ -17,8 +17,7 @@ RUN wget --quiet https://repo.anaconda.com/miniconda/Miniconda3-4.5.11-Linux-x86
     rm ~/miniconda.sh && \
     /opt/conda/bin/conda clean -tipsy && \
     ln -s /opt/conda/etc/profile.d/conda.sh /etc/profile.d/conda.sh && \
-    echo ". /opt/conda/etc/profile.d/conda.sh" >> ~/.bashrc && \
-    echo "conda activate base" >> ~/.bashrc
+    echo ". /opt/conda/etc/profile.d/conda.sh" >> ~/.bashrc
     
 RUN conda config --add channels conda-forge && \
     conda config --add channels bioconda && \
@@ -33,7 +32,7 @@ RUN mkdir /work && \
     ./b2 install && \
     cd /work/k-slam/build/ && \
     make && \
-    mv build/SLAM ./
+    mv /work/k-slam/build/SLAM /work/k-slam/
 
 ENV PATH /work/k-slam:$PATH
 ENV LD_LIBRARY_PATH /usr/local/lib/:$LD_LIBRARY_PATH
