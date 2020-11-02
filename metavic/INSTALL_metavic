@@ -1,0 +1,4 @@
+docker build .
+docker tag e670219bf331 kdhiri/metavic:latest
+docker push kdhiri/metavic:latest
+singularity build metavic.sif docker://kdhiri/metavic
