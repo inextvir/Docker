@@ -32,7 +32,7 @@ RUN cd /work/boost_1_63_0 && \
     ./bootstrap.sh
 
 RUN cd /work/boost_1_63_0 && \
-    ./b2 install && \
+    ./b2 install; exit 0 && \
     cd /work/k-slam/build/ && \
     make && \
     mv /work/k-slam/build/SLAM /work/k-slam/
