@@ -37,14 +37,14 @@ RUN mkdir /work && \
     make install 
 
 # installing R 3.3 and packages
-RUN conda create -n riems r-base=3.3
+RUN conda create -n riems r-base=3.3 texlive-core
 
 # installing TeX and packages
-RUN wget -P /work/ http://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz && \
-    tar -xzvf install-tl-unx.tar.gz -C /work/ && \
-    perl /work/install-tl-*/install-tl
+#RUN wget -P /work/ http://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz && \
+#    tar -xzvf install-tl-unx.tar.gz -C /work/ && \
+#    perl /work/install-tl-*/install-tl
     
-ENV PATH=/usr/local/texlive/2020/bin/x86_64-linux:$PATH
+#ENV PATH=/usr/local/texlive/2020/bin/x86_64-linux:$PATH
 
 ENV TINI_VERSION v0.16.1
 ADD https://github.com/krallin/tini/releases/download/${TINI_VERSION}/tini /usr/bin/tini
