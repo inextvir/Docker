@@ -36,8 +36,8 @@ RUN mkdir /work && \
     make && \
     make install 
 
-# installing R 3.3.1 and packages
-RUN conda create -n riems r-base-3.3.1
+# installing R 3.3 and packages
+RUN conda create -n riems r-base=3.3
 
 # installing TeX and packages
 RUN wget -P /work/ http://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz && \
