@@ -26,9 +26,12 @@ RUN conda config --add channels conda-forge && \
 RUN mkdir /work && \
     git clone https://github.com/aindj/k-SLAM /work/k-slam && \
     wget -P /work/ https://sourceforge.net/projects/boost/files/boost/1.63.0/boost_1_63_0.tar.gz && \
-    tar -xzvf /work/boost_1_63_0.tar.gz -C /work/ && \
-    cd /work/boost_1_63_0 && \
-    ./bootstrap.sh && \
+    tar -xzvf /work/boost_1_63_0.tar.gz -C /work/ 
+
+RUN cd /work/boost_1_63_0 && \
+    ./bootstrap.sh
+
+RUN cd /work/boost_1_63_0 && \
     ./b2 install && \
     cd /work/k-slam/build/ && \
     make && \
