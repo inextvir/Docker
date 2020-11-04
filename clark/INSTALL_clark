@@ -1,1 +1,1 @@
-singularity build clark_2020_10_30 docker://johrollin/clark:latest
+singularity build --sandbox dev/ clark_2020_10_30 docker://johrollin/clark:latest
