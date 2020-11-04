@@ -13,6 +13,6 @@ RUN apt-get -qq update && apt-get -qq -y install curl bzip2 wget \
     && conda clean --all --yes \
     && conda install -y python=3 \
     && conda install -c bioconda/label/cf201901 clark\
-    && chmod -R 777 /
+    && chmod -R 777 /usr/
 
 ENV PATH /opt/conda/bin:$PATH
