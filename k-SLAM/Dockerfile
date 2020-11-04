@@ -27,12 +27,16 @@ RUN mkdir /work && \
     git clone https://github.com/aindj/k-SLAM /work/k-slam && \
     wget -P /work/ https://sourceforge.net/projects/boost/files/boost/1.63.0/boost_1_63_0.tar.gz && \
     tar -xzvf /work/boost_1_63_0.tar.gz -C /work/ && \
-    cd /work/boost_1_63_0 && \
+    rm /work/boost_1_63_0.tar.gz
+
+RUN cd /work/boost_1_63_0 && \
     ./bootstrap.sh && \
-    ./b2 install && \
-    cd /work/k-slam/build/ && \
+    ./b2 install; exit 0 
+
+RUN cd /work/k-slam/build/ && \
     make && \
-    mv /work/k-slam/build/SLAM /work/k-slam/
+    mv /work/k-slam/build/SLAM /work/k-slam/ && \
+    chmod +x /work/k-slam/install_slam_new_db.sh
 
 ENV PATH /work/k-slam:$PATH
 ENV LD_LIBRARY_PATH /usr/local/lib/:$LD_LIBRARY_PATH
