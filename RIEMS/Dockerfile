@@ -37,7 +37,7 @@ RUN mkdir /work && \
     make install 
 
 # installing R 3.3 and packages
-RUN conda create -n riems r-base=3.3 texlive-core
+RUN conda create -n riems r-base=3.3 r-knitr r-xtable r-plyr r-hues r-ggplot2 texlive-core
 
 # installing TeX and packages
 #RUN wget -P /work/ http://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz && \
