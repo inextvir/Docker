@@ -28,7 +28,7 @@ RUN mkdir /seq && \
     wget -P /seq https://s3.amazonaws.com/changseq/kqu/rins/rins.tar.gz && \
     tar -xzvf /seq/rins.tar.gz -C /seq && \
     wget -P /seq http://hgdownload.soe.ucsc.edu/admin/jksrc.archive/jksrc.v341.zip && \
-    conda activate base && \
+    source activate base && \
     unzip /seq/jksrc.v341.zip -d /seq
 
 ENV PATH /seq:$PATH
