@@ -1,4 +1,4 @@
 singularity build VIP.sif docker://yang4li/vip-docker
 singularity shell VIP.sif
 cd /VIP
-sh VIP.sh -h
+./VIP.sh -h
