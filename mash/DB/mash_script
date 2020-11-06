@@ -1,0 +1,2 @@
+# mash sketch -o /mnt/cbib/inextvir/DB/mash /mnt/cbib/inextvir/workspace/common/DB/RVDB/nucl/U-RVDBv20.0.fasta
+mash sketch -i -o /mnt/cbib/inextvir/DB/mash /mnt/cbib/inextvir/workspace/common/Base_DB/REFSEQ/viral/nucl/refseq_viral_all_genomic.fna

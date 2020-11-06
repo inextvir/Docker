@@ -1,0 +1,12 @@
+cd /mnt/cbib/inextvir/DB/clark
+
+# http://clark.cs.ucr.edu/Overview/
+# set_targets.sh not found in conda PATH
+#/usr/local/opt/clark/
+
+# in singularity
+/usr/local/opt/clark/set_targets.sh /mnt/cbib/inextvir/DB/clark viruses --species
+
+# run locally with --sandbox used
+# /mnt/cbib/inextvir/workspace/jrollin/doing_installation/usr/local/opt/clark/set_targets.sh /mnt/cbib/inextvir/DB/clark viruses --species
+# singularity build 2clark_2020_11_04 clark_2020_11_04/

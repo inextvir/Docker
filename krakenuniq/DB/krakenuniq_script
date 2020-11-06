@@ -1,0 +1,9 @@
+cd /mnt/cbib/inextvir/DB/
+
+#krakenuniq-download --db krakenuniq refseq/viral/
+#krakenuniq-download --db krakenuniq taxonomy
+
+krakenuniq-build --db krakenuniq --kmer-len 31 --threads 1 --taxids-for-genomes --taxids-for-sequences
+
+
+

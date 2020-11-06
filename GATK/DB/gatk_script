@@ -1,0 +1,15 @@
+cd /mnt/cbib/inextvir/DB/gatk
+
+#gatk PathSeqBuildKmers  \
+#   --reference /mnt/cbib/inextvir/workspace/common/Base_DB/REFSEQ/plant/smal_ref/small_host_ref.fna \
+#   --output /mnt/cbib/inextvir/DB/gatk/host_reference.hss \
+#   --kmer-mask 16 \
+#   --kmer-size 31
+
+gatk PathSeqBuildReferenceTaxonomy \
+   --reference /mnt/cbib/inextvir/workspace/common/Base_DB/REFSEQ/viral/nucl/release/release.viral.full.genomic.fna \
+   --output /mnt/cbib/inextvir/DB/gatk/taxonomy.db \
+   --refseq-catalog /mnt/cbib/inextvir/workspace/common/Base_DB/REFSEQ/viral/nucl/release/RefSeq-release202.catalog.gz \
+   --tax-dump /mnt/cbib/inextvir/workspace/common/Base_DB/NCBI_taxonomy/taxdump.tar.gz \
+   --min-non-virus-contig-length 2000
+

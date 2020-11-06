@@ -1,0 +1,3 @@
+ wget https://www.dropbox.com/s/nhhx7i7glwdahru/mpa_v20_m200_marker_info.txt.bz2
+
+bzip2 -d mpa_v20_m200_marker_info.txt.bz2

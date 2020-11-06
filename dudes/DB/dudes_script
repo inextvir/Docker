@@ -1,0 +1,8 @@
+# https://ccb.jhu.edu/software/centrifuge/manual.shtml#database-download-and-index-building
+cd /mnt/cbib/inextvir/DB/dudes
+bowtie2-build -f /mnt/cbib/inextvir/workspace/common/Base_DB/REFSEQ/viral/nucl/refseq_viral_all_genomic.fna custom_db
+
+
+DUDesDB.py -m 'av' -f /mnt/cbib/inextvir/DB/dudes/refseq_viral_all_genomic.fna -n /mnt/cbib/inextvir/workspace/common/Base_DB/NCBI_taxonomy/nodes.dmp -a /mnt/cbib/inextvir/workspace/common/Base_DB/NCBI_taxonomy/names.dmp -g /mnt/cbib/inextvir/workspace/common/Base_DB/NCBI_taxonomy/accession2taxid/nucl_gb.accession2taxid -t 12 -o custom_db
+
+

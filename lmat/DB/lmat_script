@@ -1,0 +1,7 @@
+cd /mnt/cbib/inextvir/DB
+
+kraken2-build --download-taxonomy --db kraken2
+kraken2-build --download-library viral --db kraken2
+
+kraken2-build --build --db kraken2
+

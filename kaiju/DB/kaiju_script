@@ -1,0 +1,6 @@
+wget http://kaiju.binf.ku.dk/database/kaiju_db_refseq_2020-05-25.tgz
+
+gunzip -d kaiju_db_refseq_2020-05-25.tgz
+tar -xvf kaiju_db_refseq_2020-05-25.tar
+
+

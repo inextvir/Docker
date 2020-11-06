@@ -1,0 +1,12 @@
+# https://ccb.jhu.edu/software/centrifuge/manual.shtml#database-download-and-index-building
+cd /mnt/cbib/inextvir/DB/centrifuge
+#centrifuge-download -o taxonomy taxonomy
+#centrifuge-download -o library -m -d "viral" refseq > seqid2taxid.map
+#cat library/*/*.fna > input-sequences.fna
+centrifuge-build -p 1 --conversion-table seqid2taxid.map \
+                 --taxonomy-tree taxonomy/nodes.dmp --name-table taxonomy/names.dmp \
+                 input-sequences.fna abv
+
+
+# rm library/viral/*
+

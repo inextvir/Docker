@@ -1,0 +1,6 @@
+cd /mnt/cbib/inextvir/DB/prophyle
+
+prophyle download -d /mnt/cbib/inextvir/DB/prophyle viruses
+
+prophyle index -j 1 viruses.nw index_dir 
+
