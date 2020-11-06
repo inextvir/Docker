@@ -21,14 +21,13 @@ RUN wget --quiet https://repo.anaconda.com/miniconda/Miniconda3-4.5.11-Linux-x86
 RUN conda config --add channels conda-forge && \
     conda config --add channels bioconda && \
     conda config --add channels default &&\
-    conda activate base && \
-    conda install unzip
+    conda create -n rins unzip
 
 RUN mkdir /seq && \
     wget -P /seq https://s3.amazonaws.com/changseq/kqu/rins/rins.tar.gz && \
     tar -xzvf /seq/rins.tar.gz -C /seq && \
     wget -P /seq http://hgdownload.soe.ucsc.edu/admin/jksrc.archive/jksrc.v341.zip && \
-    source activate base && \
+    source activate rins && \
     unzip /seq/jksrc.v341.zip -d /seq
 
 ENV PATH /seq:$PATH
