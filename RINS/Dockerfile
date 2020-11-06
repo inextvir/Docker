@@ -21,7 +21,6 @@ RUN wget --quiet https://repo.anaconda.com/miniconda/Miniconda3-4.5.11-Linux-x86
 RUN conda config --add channels conda-forge && \
     conda config --add channels bioconda && \
     conda config --add channels default &&\
-    conda activate base && \
     conda create -n rins unzip
 
 RUN mkdir /seq && \
