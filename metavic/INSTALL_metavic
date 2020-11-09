@@ -2,3 +2,30 @@ docker build .
 docker tag e670219bf331 kdhiri/metavic:latest
 docker push kdhiri/metavic:latest
 singularity build metavic.sif docker://kdhiri/metavic
+
+singularity build --sandbox dev/ metavic.sif
+singularity shell --writable dev/
+
+echo "GARMBIN=/usr/local/bin/GARM_v0.7.5/bin" >> ~/.bashrc
+echo "GARMLIB=/usr/local/bin/GARM_v0.7.5/lib" >> ~/.bashrc
+echo "MUMBIN=/usr/local/bin/GARM_v0.7.5/MUMmer3.22" >> ~/.bashrc
+echo "AMOSBIN=/usr/local/bin/GARM_v0.7.5/amos-3.0.0/bin" >> ~/.bashrc
+echo "AMOSLIB=/usr/local/bin/GARM_v0.7.5/amos-3.0.0/lib" >> ~/.bashrc
+
+export PATH=$PATH:$GARMBIN:$GARMLIB:$MUMBIN:$AMOSBIN:$AMOSLIB
+export GARMBIN=/free/programs/garm/GARM_v0.7.5/bin
+export GARMLIB=/free/programs/garm/GARM_v0.7.5/lib
+export MUMBIN=/free/programs/garm/GARM_v0.7.4/MUMmer3.22
+export AMOSBIN=/free/programs/garm/GARM_v0.7.4/amos-3.0.0/bin
+
+echo "PATH=$PATH:$GARMBIN:$GARMLIB:$MUMBIN:$AMOSBIN:$AMOSLIB" >> ~/.bashrc
+echo "PATH=$PATH:/usr/local/bin/GARM_v0.7.5" >> ~/.bashrc
+echo "PATH=\$PATH:/usr/local/bin" >> ~/.bashrc
+echo "PATH=\$PATH:/usr/local/bin/MetaViC" >> ~/.bashrc
+echo "PATH=\$PATH:/usr/local/bin/ribopicker-standalone-0.4.3/" >> ~/.bashrc
+
+. ~/.bashrc
+
+singularity build Metavic.sif dev/
+singularity run Metavic.sif
+
