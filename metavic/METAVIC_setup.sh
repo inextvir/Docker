@@ -32,10 +32,10 @@ apt-get install -y python-pip aptitude expat libexpat1-dev libz-dev libboost-all
 conda install -y -c bioconda bowtie2
 conda install -y -c bioconda diamond
 conda install -y -c bioconda idba
-conda install -y -c bioconda krona
+conda install -y -c bioconda krona #ktImportTaxonomy
 conda install -y -c conda-forge -c bioconda quast
-conda install -y -c bioconda spades
-conda install -y -c bioconda trim-galore
+conda install -y -c bioconda spades #spades.py
+conda install -y -c bioconda trim-galore #trim_galore
 
 
 
@@ -83,10 +83,11 @@ rm /prinseq-lite-0.20.4.tar.gz
 #
 cpanm Data::Dumper Getopt::Long Pod::Usage File::Path FindBin
 wget --directory-prefix=/usr/local/bin https://sourceforge.net/projects/ribopicker/files/standalone/ribopicker-standalone-0.4.3.tar.gz
-tar -xvzf ribopicker-standalone-0.4.3.tar.gz
+cd /usr/local/bin
+tar -xvzf /usr/local/bin/ribopicker-standalone-0.4.3.tar.gz
 cp -puv /usr/local/bin/ribopicker-standalone-0.4.3/ribopicker.pl /usr/local/bin/ribopicker && chmod +x /usr/local/bin/ribopicker
 cp -puv /usr/local/bin/ribopicker-standalone-0.4.3/riboPickerConfig.pm /usr/local/bin/
-rm usr/local/bin/ribopicker-standalone-0.4.3.tar.gz
+rm /usr/local/bin/ribopicker-standalone-0.4.3.tar.gz
 #ribopicker -h
 
 
@@ -151,24 +152,29 @@ chmod +x /usr/local/bin/weeSAMv1.1
 ##
 #
 
-wget https://sourceforge.net/projects/garm-meta-assem/files/GARM_v0.7.5.tar.gz
+wget --directory-prefix=/usr/local/bin https://sourceforge.net/projects/garm-meta-assem/files/GARM_v0.7.5.tar.gz
+cd /usr/local/bin
 tar -xvzf GARM_v0.7.5.tar.gz
-sed -i '13i\use lib "/GARM_v0.7.5/lib/";' /GARM_v0.7.5/GARM.pl
-GARMBIN=/GARM_v0.7.5/bin
-GARMLIB=/GARM_v0.7.5/lib
-MUMBIN=/GARM_v0.7.5/MUMmer3.22
-AMOSBIN=/GARM_v0.7.5/amos-3.0.0/bin
-AMOSLIB=/GARM_v0.7.5/amos-3.0.0/lib
-PATH=$PATH:/GARM_v0.7.5
+sed -i '13i\use lib "/usr/local/bin/GARM_v0.7.5/lib/";' /usr/local/bin/GARM_v0.7.5/GARM.pl
+chmod +x /usr/local/bin/GARM_v0.7.5/GARM.pl
+
+echo "GARMBIN=/usr/local/bin/GARM_v0.7.5/bin" >> ~/.bashrc
+echo "GARMLIB=/usr/local/bin/GARM_v0.7.5/lib" >> ~/.bashrc
+echo "MUMBIN=/usr/local/bin/GARM_v0.7.5/MUMmer3.22" >> ~/.bashrc
+echo "AMOSBIN=/usr/local/bin/GARM_v0.7.5/amos-3.0.0/bin" >> ~/.bashrc
+echo "AMOSLIB=/usr/local/bin/GARM_v0.7.5/amos-3.0.0/lib" >> ~/.bashrc
+
 export PATH=$PATH:$GARMBIN:$GARMLIB:$MUMBIN:$AMOSBIN:$AMOSLIB
 export GARMBIN=/free/programs/garm/GARM_v0.7.5/bin
 export GARMLIB=/free/programs/garm/GARM_v0.7.5/lib
 export MUMBIN=/free/programs/garm/GARM_v0.7.4/MUMmer3.22
 export AMOSBIN=/free/programs/garm/GARM_v0.7.4/amos-3.0.0/bin
-export PATH=$PATH:$GARMBIN:$GARMLIB:$MUMBIN:$AMOSBIN:$AMOSLIB
-echo "PATH=\$PATH:/GARM_v0.7.5/lib/GARM_main.pm" >> ~/.bashrc
-. ~/.bashrc
+
+echo "PATH=$PATH:$GARMBIN:$GARMLIB:$MUMBIN:$AMOSBIN:$AMOSLIB" >> ~/.bashrc
+echo "PATH=$PATH:/usr/local/bin/GARM_v0.7.5" >> ~/.bashrc
+
 rm GARM_v0.7.5.tar.gz
+cd ~
 #GARM.pl -h
 
 
@@ -189,6 +195,8 @@ cd /usr/local/bin
 git clone https://github.com/sejmodha/MetaViC.git
 echo "PATH=\$PATH:/usr/local/bin" >> ~/.bashrc
 echo "PATH=\$PATH:/usr/local/bin/MetaViC" >> ~/.bashrc
+echo "PATH=\$PATH:/usr/local/bin/ribopicker-standalone-0.4.3/" >> ~/.bashrc
+
 . ~/.bashrc
 #Cleaning.sh
 #Assemble.sh
