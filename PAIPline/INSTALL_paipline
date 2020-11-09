@@ -1,7 +1,7 @@
 docker build .
-docker tag 82067ea38557 kdhiri/paipline:latest
+docker tag 268562f826bf kdhiri/paipline:latest
 docker push kdhiri/paipline:latest
 singularity build paipline.sif docker://kdhiri/paipline:latest
 singularity run paipline.sif
 ##test
-python  /usr/local/bin/paipline/PAIPline.py -h
+python2  /usr/local/bin/paipline/PAIPline.py -h
