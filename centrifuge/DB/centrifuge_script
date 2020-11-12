@@ -5,7 +5,7 @@ cd /mnt/cbib/inextvir/DB/centrifuge
 #cat library/*/*.fna > input-sequences.fna
 centrifuge-build -p 1 --conversion-table seqid2taxid.map \
                  --taxonomy-tree taxonomy/nodes.dmp --name-table taxonomy/names.dmp \
-                 input-sequences.fna abv
+                 refseq_viral_all_genomic.fna virus_refseq
 
 
 # rm library/viral/*

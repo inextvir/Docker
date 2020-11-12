@@ -33,7 +33,7 @@ echo '########################################'
 
 
 # What you actually want to launch
-singularity exec /mnt/cbib/inextvir/workspace/jrollin/doing_installation/centrifuge_2020-09-23 /mnt/cbib/inextvir/workspace/jrollin/DB_script/centrifuge_script
+singularity exec /mnt/cbib/inextvir/workspace/jrollin/IMG/centrifuge_2020-09-23 /mnt/cbib/inextvir/workspace/jrollin/DB_script/centrifuge_script
 
 echo '########################################'
 echo 'Job finished' $(date --iso-8601=seconds)
