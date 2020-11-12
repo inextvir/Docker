@@ -12,7 +12,7 @@ RUN apt-get -qq update && apt-get -qq -y install curl bzip2 \
     && rm -rf /var/lib/apt/lists/* /var/log/dpkg.log \
     && conda clean --all --yes \
     && conda config --add channels bioconda --add channels conda-forge \
-    && conda install -y python=3.4 \
+    && conda install -y python=2.7 \
     && conda install -c bioconda/label/cf201901 bowtie2 \
     && conda install -c bioconda/label/cf201901 dudes
 
