@@ -6,10 +6,20 @@ cd /mnt/cbib/inextvir/DB/gatk
 #   --kmer-mask 16 \
 #   --kmer-size 31
 
-gatk PathSeqBuildReferenceTaxonomy \
-   --reference /mnt/cbib/inextvir/workspace/common/Base_DB/REFSEQ/viral/nucl/release/release.viral.full.genomic.fna \
-   --output /mnt/cbib/inextvir/DB/gatk/taxonomy.db \
-   --refseq-catalog /mnt/cbib/inextvir/workspace/common/Base_DB/REFSEQ/viral/nucl/release/RefSeq-release202.catalog.gz \
-   --tax-dump /mnt/cbib/inextvir/workspace/common/Base_DB/NCBI_taxonomy/taxdump.tar.gz \
-   --min-non-virus-contig-length 2000
+#gatk PathSeqBuildReferenceTaxonomy \
+#   --reference /mnt/cbib/inextvir/workspace/common/Base_DB/REFSEQ/viral/nucl/release/release.viral.full.genomic.fna \
+#   --output /mnt/cbib/inextvir/DB/gatk/taxonomy.db \
+#   --refseq-catalog /mnt/cbib/inextvir/workspace/common/Base_DB/REFSEQ/viral/nucl/release/RefSeq-release202.catalog.gz \
+#   --tax-dump /mnt/cbib/inextvir/workspace/common/Base_DB/NCBI_taxonomy/taxdump.tar.gz \
+#   --min-non-virus-contig-length 2000
+
+
+gatk BwaMemIndexImageCreator \
+     -I /mnt/cbib/inextvir/workspace/common/Base_DB/REFSEQ/viral/nucl/release/release.viral.full.genomic.fasta \
+     -O microbe_reference.img
+
+gatk BwaMemIndexImageCreator \
+     -I /mnt/cbib/inextvir/workspace/common/Base_DB/REFSEQ/plant/smal_ref/small_host_ref.fasta \
+     -O host_reference.img
+
 
