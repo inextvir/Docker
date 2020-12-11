@@ -1,0 +1,15 @@
+# https://github.com/bioinformatics-centre/kaiju
+
+cd /mnt/cbib/inextvir/DB/kaiju_g
+
+#kaiju-makedb -s refseq -t 1 
+#Error during bacteria download ...
+#Error in server response. Closing.
+#
+
+#archea viral bacteria from refseq kaiju DB from May 2020
+wget http://kaiju.binf.ku.dk/database/kaiju_db_refseq_2020-05-25.tgz
+
+gunzip -d kaiju_db_refseq_2020-05-25.tgz
+tar -xvf kaiju_db_refseq_2020-05-25.tar
+

@@ -1,0 +1,19 @@
+# https://ccb.jhu.edu/software/centrifuge/manual.shtml#database-download-and-index-building
+cd /mnt/cbib/inextvir/DB/centrifuge_g
+#centrifuge-download -o taxonomy taxonomy
+#centrifuge-download -o library -m -d "archaea,bacteria,viral,plant" refseq > seqid2taxid.map
+#cat library/*/*.fna > input-sequences.fna
+
+
+#centrifuge-build -p 1 --conversion-table seqid2taxid.map \
+#                  --taxonomy-tree taxonomy/nodes.dmp --name-table taxonomy/names.dmp \
+#                                   input-sequences.fna golden
+####
+####slurmstepd: error: Exceeded step memory limit at some point
+
+
+
+# Refseq: bacteria, archaea, viral, human
+wget https://genome-idx.s3.amazonaws.com/centrifuge/p%2Bh%2Bv.tar.gz
+gunzip -d p+h+v.tar.gz
+tar -xvf p+h+v.tar
